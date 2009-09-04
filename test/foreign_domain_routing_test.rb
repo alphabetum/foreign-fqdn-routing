@@ -132,4 +132,37 @@ class ForeignDomainRoutingTest < ActionController::TestCase
     end
     
   end
+  
+  test "should route conditionally on foreign fqdn and protocol" do
+    ForeignDomainRouting.init_native_domains = {
+      :development => ['localhost'], 
+      :test => ['www.example.com'],
+      :production => ['example.com', 'example.org', 'example.net']
+    }
+    
+    @rs.draw { |m| m.connect 'thing', :controller => 'test', :conditions => { :foreign_fqdn => false, :protocol => /^http:/ }  }
+    @request.path = '/thing'
+    # :foreign_fqdn => false, :protocol => http:// (MATCH)
+    assert(@rs.recognize(@request))
+
+    # :foreign_fqdn => false, :protocol => https:// (NO MATCH)
+    @request.protocol = "https://"
+    assert_raise(ActionController::RoutingError) do
+      @rs.recognize(@request)
+    end
+
+    # :foreign_fqdn => true, :protocol => http:// (NO MATCH)
+    @request.host = ['foreign.example.com']
+    @request.protocol = "http://"
+    assert_raise(ActionController::RoutingError) do
+      @rs.recognize(@request)
+    end
+
+    # :foreign_fqdn => true, :protocol => https:// (NO MATCH)
+    @request.protocol = "https://"
+    assert_raise(ActionController::RoutingError) do
+      @rs.recognize(@request)
+    end
+    
+  end
 end

@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{foreign_domain_routing}
-  s.version = "1.0.3"
+  s.version = "1.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Joe Scharf"]
-  s.date = %q{2009-04-06}
-  s.email = %q{joe@quantipay.com}
+  s.authors = ["Brian Mulloy", "Joe Scharf", "William Melody"]
+  s.date = %q{2009-09-03}
+  s.email = %q{william@gmail.com}
   s.extra_rdoc_files = [
     "README"
   ]
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     "test/test_helper.rb"
   ]
   s.has_rdoc = true
-  s.homepage = %q{http://github.com/quantipay/foreign_domain_routing}
+  s.homepage = %q{http://github.com/autodata/foreign_domain_routing}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}

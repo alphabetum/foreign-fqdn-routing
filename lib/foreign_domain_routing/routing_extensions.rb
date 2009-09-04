@@ -12,6 +12,8 @@ module ForeignDomainRouting
       result = recognition_conditions_without_foreign_domain
       result << "ForeignDomainRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == true
       result << "!ForeignDomainRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == false
+      result << "ForeignDomainRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == true
+      result << "!ForeignDomainRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == false
       
       conditions.each do |method, value|
         if TESTABLE_REQUEST_METHODS.include? method

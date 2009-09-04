@@ -20,15 +20,27 @@ module ForeignDomainRouting
     true
   end
   
+  def self.foreign_fqdn?(host)
+    native_domains.each do |domain|
+      return false if host =~ /\A#{domain}\Z/i
+    end
+    true
+  end
+  
   module Controller
     def self.included(controller)
       controller.helper_method(:foreign_domain?)
+      controller.helper_method(:foreign_fqdn?)
     end
     
     protected
     
     def foreign_domain?
       ForeignDomainRouting.foreign_domain?(request.host)
+    end
+    
+    def foreign_fqdn?
+      ForeignDomainRouting.foreign_fqdn?(request.host)
     end
   end
 end
