@@ -4,10 +4,10 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "foreign_domain_routing"
+    gem.name = "foreign-domain-routing"
     gem.summary = %Q{This version of foreign_domain_routing merges foreign_domain_routing with request_routing}
     gem.email = "william@gmail.com"
-    gem.homepage = "http://github.com/autodata/foreign_domain_routing"
+    gem.homepage = "http://github.com/autodata/foreign-domain-routing"
     gem.authors = ["Brian Mulloy", "Joe Scharf", "William Melody"]
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
