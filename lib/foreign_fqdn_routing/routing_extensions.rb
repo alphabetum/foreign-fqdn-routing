@@ -17,7 +17,7 @@ module ForeignFQDNRouting
       base.alias_method_chain :recognition_conditions, :foreign_domain
     end
 
-    def recognition_conditions_with_foreign_domain      
+    def recognition_conditions_with_foreign_domain
       result = recognition_conditions_without_foreign_domain
       result << "ForeignFQDNRouting.foreign_domain?(env[:host])"  if conditions[:foreign_domain]  == true
       result << "!ForeignFQDNRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain]  == false
@@ -31,7 +31,6 @@ module ForeignFQDNRouting
           else
             "conditions[#{method.inspect}] === env[#{method.inspect}]"
           end
-        else
         end
       end # conditions
       result
