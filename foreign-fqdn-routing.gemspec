@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{This version of foreign_fqdn_routing merges foreign_fqdn_routing with request_routing}
+  s.summary = %q{Adds domain, subdomain and fqdn routing support to Rails}
   s.test_files = [
     "test/foreign_fqdn_routing_test.rb",
      "test/test_helper.rb"

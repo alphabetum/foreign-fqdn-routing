@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "foreign-fqdn-routing"
-    gem.summary = %Q{This version of foreign_fqdn_routing merges foreign_fqdn_routing with request_routing}
+    gem.summary = %Q{Adds domain, subdomain and fqdn routing support to Rails}
     gem.email = "william@kyakia.com"
     gem.homepage = "http://github.com/autodata/foreign-fqdn-routing"
     gem.authors = ["Brian Mulloy", "Joe Scharf", "William Melody"]
