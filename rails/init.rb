@@ -1,4 +1,4 @@
-require 'foreign_domain_routing'
+require 'foreign_fqdn_routing'
 
 ActionController::Base.send :include, ForeignFQDNRouting::Controller
 

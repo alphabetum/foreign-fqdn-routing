@@ -6,7 +6,7 @@ require 'action_controller'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'foreign_domain_routing'
+require 'foreign_fqdn_routing'
 
 class Test::Unit::TestCase
 end
