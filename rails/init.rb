@@ -1,5 +1,5 @@
 require 'foreign_domain_routing'
 
-ActionController::Base.send :include, ForeignDomainRouting::Controller
+ActionController::Base.send :include, ForeignFQDNRouting::Controller
 
-# RAILS_DEFAULT_LOGGER.info("** ForeignDomainRouting: initialized properly")
+# RAILS_DEFAULT_LOGGER.info("** ForeignFQDNRouting: initialized properly")

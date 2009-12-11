@@ -1,4 +1,4 @@
-module ForeignDomainRouting
+module ForeignFQDNRouting
   module RouteExtensions
 
     TESTABLE_REQUEST_METHODS = [:subdomain, :domain, :method, :port, :remote_ip, 
@@ -10,10 +10,10 @@ module ForeignDomainRouting
 
     def recognition_conditions_with_foreign_domain      
       result = recognition_conditions_without_foreign_domain
-      result << "ForeignDomainRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == true
-      result << "!ForeignDomainRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == false
-      result << "ForeignDomainRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == true
-      result << "!ForeignDomainRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == false
+      result << "ForeignFQDNRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == true
+      result << "!ForeignFQDNRouting.foreign_domain?(env[:host])" if conditions[:foreign_domain] == false
+      result << "ForeignFQDNRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == true
+      result << "!ForeignFQDNRouting.foreign_fqdn?(env[:host])" if conditions[:foreign_fqdn] == false
       
       conditions.each do |method, value|
         if TESTABLE_REQUEST_METHODS.include? method
@@ -53,5 +53,5 @@ module ForeignDomainRouting
   end
 end
 
-ActionController::Routing::RouteSet.send :include, ForeignDomainRouting::RouteSetExtensions
-ActionController::Routing::Route.send :include, ForeignDomainRouting::RouteExtensions
+ActionController::Routing::RouteSet.send :include, ForeignFQDNRouting::RouteSetExtensions
+ActionController::Routing::Route.send :include, ForeignFQDNRouting::RouteExtensions

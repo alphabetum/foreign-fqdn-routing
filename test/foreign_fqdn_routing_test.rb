@@ -16,7 +16,7 @@ end
 class MockRequest < Struct.new(:path, :subdomains, :method, :remote_ip, :protocol, :path_parameters, :domain, :port, :content_type, :accepts, :request_uri, :host)
 end
 
-class ForeignDomainRoutingTest < ActionController::TestCase
+class ForeignFQDNRoutingTest < ActionController::TestCase
   attr_reader :rs
   def setup
     @rs = ::ActionController::Routing::RouteSet.new
@@ -82,7 +82,7 @@ class ForeignDomainRoutingTest < ActionController::TestCase
   end
   
   test "should route conditionally on foreign domain" do
-    ForeignDomainRouting.init_native_domains = {
+    ForeignFQDNRouting.init_native_domains = {
       :development => ['localhost'], 
       :test => ['www.example.com'],
       :production => ['example.com', 'example.org', 'example.net']
@@ -101,7 +101,7 @@ class ForeignDomainRoutingTest < ActionController::TestCase
   end
   
   test "should route conditionally on foreign domain and protocol" do
-    ForeignDomainRouting.init_native_domains = {
+    ForeignFQDNRouting.init_native_domains = {
       :development => ['localhost'], 
       :test => ['www.example.com'],
       :production => ['example.com', 'example.org', 'example.net']
@@ -134,7 +134,7 @@ class ForeignDomainRoutingTest < ActionController::TestCase
   end
   
   test "should route conditionally on foreign fqdn and protocol" do
-    ForeignDomainRouting.init_native_domains = {
+    ForeignFQDNRouting.init_native_domains = {
       :development => ['localhost'], 
       :test => ['www.example.com'],
       :production => ['example.com', 'example.org', 'example.net']

@@ -1,6 +1,6 @@
-require 'foreign_domain_routing/routing_extensions'
+require 'foreign_fqdn_routing/routing_extensions'
 
-module ForeignDomainRouting
+module ForeignFQDNRouting
   DEFAULT_NATIVE_DOMAINS = {:development => ['localhost:3000'], :test => ['test.host'], :production => ['example.com'] }
   mattr_accessor :init_native_domains
   @@init_native_domains = DEFAULT_NATIVE_DOMAINS.dup
@@ -36,11 +36,11 @@ module ForeignDomainRouting
     protected
     
     def foreign_domain?
-      ForeignDomainRouting.foreign_domain?(request.host)
+      ForeignFQDNRouting.foreign_domain?(request.host)
     end
     
     def foreign_fqdn?
-      ForeignDomainRouting.foreign_fqdn?(request.host)
+      ForeignFQDNRouting.foreign_fqdn?(request.host)
     end
   end
 end
